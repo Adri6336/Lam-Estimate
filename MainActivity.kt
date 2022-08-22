@@ -1,20 +1,31 @@
 package com.example.lamestimate
 
 
+import android.content.Intent
 import android.media.MediaPlayer
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.ParseException
 import java.util.*
 
+
 class MainActivity : AppCompatActivity() {
-    // ============ FUNCTIONS ============
+
+    // ============  Links ============
+    fun goTo(url: String){
+        val uriUrl = Uri.parse(url)
+        val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
+        startActivity(launchBrowser)
+    }
+
+    // ============  MAIN FUNCTIONS ============
 
     fun IntRange.random() = Random().nextInt((endInclusive + 1) - start) + start
 
@@ -212,17 +223,22 @@ class MainActivity : AppCompatActivity() {
 
         // Connect items from main app
         var calculate_button = findViewById<Button>(R.id.get_estimate)
-
         var width_entry = findViewById<EditText>(R.id.width_entry)
-
         var perline_entry = findViewById<EditText>(R.id.perline_entry)
-
         var pagecount_entry = findViewById<EditText>(R.id.numpages_entry)
-
         var rate_entry = findViewById<EditText>(R.id.rate_entry)
-
         var mincharge_entry = findViewById<EditText>(R.id.lowcharge_entry)
+        var donate_button = findViewById<Button>(R.id.donate)
+        var github_button = findViewById<Button>(R.id.github)
 
+        // Set up listener for link buttons
+        donate_button.setOnClickListener{
+            goTo("https://github.com/Adri6336/buymeacoffee/blob/main/README.md")
+        }
+
+        github_button.setOnClickListener{
+            goTo("https://github.com/Adri6336")
+        }
 
         // Set up listener for button
         calculate_button.setOnClickListener{
@@ -332,4 +348,3 @@ class MainActivity : AppCompatActivity() {
 
     }
 }
-
