@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     // ============  Links ============
     fun goTo(url: String){
+        // https://stackoverflow.com/questions/5026349/how-to-open-a-website-when-a-button-is-clicked-in-android-application
         val uriUrl = Uri.parse(url)
         val launchBrowser = Intent(Intent.ACTION_VIEW, uriUrl)
         startActivity(launchBrowser)
