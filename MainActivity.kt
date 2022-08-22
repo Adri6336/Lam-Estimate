@@ -234,7 +234,7 @@ class MainActivity : AppCompatActivity() {
 
         // Set up listener for link buttons
         donate_button.setOnClickListener{
-            goTo("https://github.com/Adri6336/buymeacoffee/blob/main/README.md")
+            goTo("https://www.buymeacoffee.com/adrianvillr")
         }
 
         github_button.setOnClickListener{
