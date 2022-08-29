@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".help">
+
+    <ImageView
+        android:id="@+id/lam3"
+        android:layout_width="220dp"
+        android:layout_height="336dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121"
+        app:srcCompat="@raw/sidewidth2" />
+
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#0D5308"
+        android:text="Return"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/Sidewidthinfo"
+        android:layout_width="165dp"
+        android:layout_height="197dp"
+        android:ems="10"
+        android:text="The paper side width represents the length in inches of the side of the paper highlighted in the image to the right."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lam3"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.166" />
+
+    <TextView
+        android:id="@+id/sidewidthinfo"
+        android:layout_width="373dp"
+        android:layout_height="326dp"
+        android:ems="20"
+        android:text="The space betwen pages represents the average amount of space in inches that separates rows of papers being laminated.\nYou should calculate this value for yourself to ensure better accuracy as the default average is just my average (some random guy). You can do this by taking three or more measurements of the space in your lamination, adding them all together, then dividing that amount by the number of measurements you took."
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spacesection"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/papersection"
+        android:layout_width="184dp"
+        android:layout_height="34dp"
+        android:text="Paper Side Width"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/Sidewidthinfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
+
+    <TextView
+        android:id="@+id/spacesection"
+        android:layout_width="222dp"
+        android:layout_height="66dp"
+        android:ems="10"
+        android:text="Space Between Pages"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Sidewidthinfo"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
