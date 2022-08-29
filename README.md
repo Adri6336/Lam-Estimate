@@ -37,4 +37,4 @@ to make the estimate better.
 is 75 cents / ft.
 
 **Min Charge**: This is the floor charge. If a lamination is super small, this is the lowest the charge is allowed
-to be. Default setting is 1.25$
+to be. Default setting is $1.25
