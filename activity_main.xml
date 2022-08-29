@@ -14,6 +14,7 @@
         android:background="@null"
         android:hint="0.75"
         android:inputType="numberDecimal"
+        android:maxLength="6"
         android:text="1.25"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/money8"
@@ -65,6 +66,7 @@
         android:background="@null"
         android:hint="0.75"
         android:inputType="numberDecimal"
+        android:maxLength="6"
         android:text="0.75"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/money8"
@@ -155,10 +157,110 @@
         app:srcCompat="@raw/mulah" />
 
     <TextView
+        android:id="@+id/width_text"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Paper Side Width (in)"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.035"
+        app:layout_wrapBehaviorInParent="vertical_only" />
+
+    <TextView
+        android:id="@+id/perline_text"
+        android:layout_width="143dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Num Per Line"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/width_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/numpages_entry"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="-55dp"
+        android:background="@null"
+        android:hint="15 pages total"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/perline_text"
+        app:layout_constraintTop_toBottomOf="@+id/perline_entry"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/width_entry"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="-55dp"
+        android:layout_marginTop="-15dp"
+        android:background="@null"
+        android:hint="8.5 in width"
+        android:inputType="numberDecimal"
+        android:maxLength="6"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/perline_text"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/perline_entry"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="-55dp"
+        android:background="@null"
+        android:hint="2 per line"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/perline_text"
+        app:layout_constraintTop_toBottomOf="@+id/width_entry"
+        app:layout_constraintVertical_bias="0.002" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/numaverage_entry"
+        android:layout_width="160dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="-55dp"
+        android:background="@null"
+        android:hint="2.7816 in average"
+        android:inputType="numberDecimal"
+        android:maxLength="6"
+        android:singleLine="false"
+        android:text="2.7816"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toEndOf="@+id/perline_text"
+        app:layout_constraintTop_toBottomOf="@+id/numpages_entry"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
         android:id="@+id/numpages_text"
         android:layout_width="143dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:background="@null"
         android:ems="10"
         android:inputType="textPersonName"
@@ -169,23 +271,24 @@
         app:layout_constraintBottom_toTopOf="@+id/get_estimate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/perline_text"
-        app:layout_constraintVertical_bias="0.063" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/width_text"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
+        android:id="@+id/average_text"
+        android:layout_width="175dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:background="@null"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Paper Side Width (in)"
+        android:linksClickable="false"
+        android:text="Space Between Pages (in)"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/get_estimate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.143"
-        app:layout_wrapBehaviorInParent="vertical_only" />
+        app:layout_constraintTop_toBottomOf="@+id/numpages_text"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/title"
@@ -208,82 +311,23 @@
         android:id="@+id/get_estimate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="#6B9F03"
         android:text="How much mulah???!!!"
         android:textAllCaps="true"
-        android:textColor="@android:color/holo_red_dark"
-        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.864" />
 
-    <TextView
-        android:id="@+id/perline_text"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Num Per Line"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/width_text"
-        app:layout_constraintVertical_bias="0.049" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/perline_entry"
-        android:layout_width="160dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="-55dp"
-        android:background="@null"
-        android:hint="2"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toEndOf="@+id/perline_text"
-        app:layout_constraintTop_toBottomOf="@+id/width_entry"
-        app:layout_constraintVertical_bias="0.042" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/width_entry"
-        android:layout_width="160dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="-55dp"
-        android:layout_marginTop="-10dp"
-        android:background="@null"
-        android:hint="8.5"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toEndOf="@+id/perline_text"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.142" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/numpages_entry"
-        android:layout_width="160dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="-55dp"
-        android:background="@null"
-        android:hint="15"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/get_estimate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.424"
-        app:layout_constraintStart_toEndOf="@+id/perline_text"
-        app:layout_constraintTop_toBottomOf="@+id/perline_entry"
-        app:layout_constraintVertical_bias="0.06" />
-
     <View
         android:id="@+id/divider"
         android:layout_width="409999dp"
         android:layout_height="10dp"
+        android:layout_marginTop="50dp"
         android:background="@color/black"
         android:backgroundTint="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/get_estimate"
@@ -307,5 +351,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/donate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:backgroundTint="#0D5308"
+        android:text="Donate"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/help_about_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#0D5308"
+        android:text="Help"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/github"
+        app:layout_constraintStart_toEndOf="@+id/donate"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/github"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="#0D5308"
+        android:text="Github"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
