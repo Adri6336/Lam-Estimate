@@ -7,6 +7,22 @@ This is the first android app I've made, so much of it is a learning process for
 
 ![image](https://github.com/Adri6336/Lam-Estimate/blob/main/lamestimate.png)
 
+
+# Installing
+
+I don't have a developer account with Google yet, so the only way to get the app is via the manual way: downloading the apk 
+file in this repository, locating it using the files app by Google, and installing.
+
+1. Download apk file [here](https://github.com/Adri6336/Lam-Estimate/blob/main/Lam%20Estimate.apk)
+
+2. Locate the file using the Files app on your Android device (probably in the downloads folder).
+
+3. Press on the file. A notice will pop up asking you to allow Files to install unknown apps. Do so.
+
+4. Go back to file in the Files app and press it again. It will ask you if you want to install, 
+press "install".
+
+
 # Getting an Estimate
 
 The estimate is limited to orders that deal with multiple pages of the same dimensions. 
