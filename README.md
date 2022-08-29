@@ -3,6 +3,8 @@ An android app to estimate lamination charges on the fly and make the work day m
 It was built to compensate for my lack of on-the-fly mathematical prowess with memes and a 
 reasonable estimate.
 
+This is the first android app I've made, so much of it is a learning process for me. 
+
 ![image](https://github.com/Adri6336/Lam-Estimate/blob/main/lamestimate.png)
 
 # Getting an Estimate
