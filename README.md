@@ -11,9 +11,14 @@ This is the first android app I've made, so much of it is a learning process for
 
 The estimate is limited to orders that deal with multiple pages of the same dimensions. 
 To get an estimate you need to fill in values for a few different required settings: paper side width, 
-num per line, and page count.
+num per line, and page count. To increase the quality of the estimate, you'll also be able to change
+a few optional settings.
+
+As this app doubles as a joke app, you should leave your device on mute if you want to use it while working.
 
 ## Required settings
+
+These settings are required in order to get an estimate. They also can lead to auditory easter eggs.
 
 **Paper Side Width**: this is the width of the sheet of paper as measured in inches. In the following image, the
 side width is the highlighted portion of the paper.
