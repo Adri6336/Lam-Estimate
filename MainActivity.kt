@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             val player = MediaPlayer.create(this, R.raw.weed)
             player.start()
             return
-        } else if (param1 == 999999f && param2 == 999999 && param3 == 999999){
+        } else if (param1 == 9999999f && param2 == 9999999 && param3 == 9999999){
             val player = MediaPlayer.create(this, failureselection[failrange])
             player.start()
             return
@@ -162,7 +162,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun get_estimate(width: Float, perline: Int, pagecount: Int, rate: Float, mincharge: Float){
+    fun get_estimate(width: Float, perline: Int, pagecount: Int, rate: Float, mincharge: Float,
+                     averagespace: Float){
         /*
         This function gets an estimate, returning info as low to high
 
@@ -170,20 +171,31 @@ class MainActivity : AppCompatActivity() {
         :param perline: Int representing the number of sheets that can fit in a single run
         :param pagecount: Int representing the number of sheets to laminate
         :param rate: Float representing the charge rate per foot
+        :param mincharge: This represents the minimum charge for customer (i.e. cant go lower than this)
+        :param averagespace: This represents the average spacing between single runs
         :return: None. This function will only update the displayed text to show the
                  cost of the operation.
          */
 
+
+        // Set up joke comments
+        val toomuchmoney = listOf("3 Souls", "Your liver (if in good condition)",
+                                  "Your hopes and dreams", "A copy of Half Life 3",
+                                  "Your firstborn child", "Your future",
+                                  "A medium sized island civilization")
+        val toomuchmoneysize = toomuchmoney.size - 1
+        val selection = (0..toomuchmoneysize).random()
 
         // Connect to estimated text box
         var output = findViewById<TextView>(R.id.estimated_text)
 
         // 0. Convert in to ft
         var widthft = (width) / 12
+        var averageft = averagespace / 12
 
         // 1. Plug values into the equation and get result (modified to use a single average)
         var rounds = get_rounds(pagecount, perline)
-        var totalft = ((rounds * widthft) + (rounds * 0.2318))  // 0.2318 is the average ft for me
+        var totalft = ((rounds * widthft) + (rounds * averageft)).toDouble()  // 0.2318 is the average ft for me
         Log.d("Total ft", "$totalft")
 
         // 2. Get range
@@ -202,15 +214,21 @@ class MainActivity : AppCompatActivity() {
         var pricemin = minft * rate  // ft * rate = estimated charge
         var pricemax = maxft * rate
 
+        Log.d("Pricemin: ", "${pricemin.toFloat()}")
+        Log.d("Pricemin > 1.0E10", "${pricemin.toFloat() >= 1.0E10}")
+
         if (pricemin.toFloat() < mincharge){  // The min charge
             pricemin = mincharge.toDouble()
         }
 
         // 4. Output info
-        if (pricemin < pricemax){
+        if (pricemin.toFloat() >= 1.000000E10.toFloat()){  // If too much money
+            output.text = "${toomuchmoney[selection]}"
+        }
+        else if (pricemin < pricemax){  // If normal
             output.text = "${'$'}${get_dec(pricemin.toFloat())} - ${'$'}${get_dec(pricemax.toFloat())}"
         }
-        else{
+        else{  // If too little
             output.text = "${'$'}${get_dec(pricemin.toFloat())}"
         }
     }
@@ -231,14 +249,21 @@ class MainActivity : AppCompatActivity() {
         var mincharge_entry = findViewById<EditText>(R.id.lowcharge_entry)
         var donate_button = findViewById<Button>(R.id.donate)
         var github_button = findViewById<Button>(R.id.github)
+        var help_button = findViewById<Button>(R.id.help_about_button)
+        var averagespace_entry = findViewById<EditText>(R.id.numaverage_entry)
 
-        // Set up listener for link buttons
+        // Set up listener for link and help buttons
         donate_button.setOnClickListener{
             goTo("https://www.buymeacoffee.com/adrianvillr")
         }
 
         github_button.setOnClickListener{
-            goTo("https://github.com/Adri6336")
+            goTo("https://github.com/Adri6336/Lam-Estimate")
+        }
+
+        help_button.setOnClickListener{
+            val intent = Intent(this@MainActivity, help::class.java)
+            startActivity(intent)
         }
 
         // Set up listener for button
@@ -253,17 +278,34 @@ class MainActivity : AppCompatActivity() {
             var pagecount = pagecount_entry.text.toString()
             var rate = rate_entry.text.toString()
             var mincharge = mincharge_entry.text.toString()
+            var averagespace = averagespace_entry.text.toString()
 
             // 2. Try to convert to proper datatype
             var output = findViewById<TextView>(R.id.estimated_text)  // Connect to output
             var success = true  // If this ever goes false, nothing goes to get_estimate fn
 
-            // 2.1 Convert width, rate, and mincharge to float
+            // 2.1 Convert averagespace, width, rate, and mincharge to float
             var width2 = 1.00f
             var perline2 = 1
             var pagecount2 = 1
             var rate2 = 0.75f
             var mincharge2 = 1.25f
+            var averagespace2 = 2.7816f
+
+            try{  // Do averagespace ======
+                if (averagespace != ""){  // Only try this if the string is not empty
+                    averagespace2 = averagespace.toFloat()
+                }
+                else {  // If empty, tell the user
+                    output.text = "ERROR: Add value to 'Space Between Pages (in)'"
+                    success = false  // If this triggers, don't send to function
+                }
+
+            } catch(e: ParseException){
+                output.text = "ERROR: average conversion"
+                success = false  // If this triggers, don't send to function
+
+            }
 
             try{  // Do width ======
                 if (width != ""){  // Only try this if the string is not empty
@@ -338,10 +380,10 @@ class MainActivity : AppCompatActivity() {
 
             // 3. If conversion successful, send info to function
             if (success){
-                get_estimate(width2, perline2, pagecount2, rate2, mincharge2)
+                get_estimate(width2, perline2, pagecount2, rate2, mincharge2, averagespace2)
                 bling(width2, perline2, pagecount2)
             } else{
-                bling(999999f, 999999, 999999)
+                bling(9999999f, 9999999, 9999999)
             }
 
         }
